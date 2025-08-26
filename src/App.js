@@ -1,21 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import Counter from './Counter';
 
 function App() {
-    const [count, setCount] = useState(0)
-
-    const increment = () => {
-        setCount(count + 1);
-    };
-
-    const decrement = () => {
-        setCount(count - 1);
-    };
+    const [isClicker, setClicker] = useState(true);
 
     return (
         <div className="App">
-            <button onClick={() => decrement()}>-</button>
-            <span style={{display: 'inline-block', margin: '0 0.5rem'}}>{count}</span>
-            <button onClick={() => increment()}>+</button>
+            <h2>React App</h2>
+            <button onClick={() => setClicker(!isClicker)}>Toggle clicker</button>
+            {isClicker && <Counter/>}
         </div>
     );
 }
